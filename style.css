@@ -205,7 +205,24 @@ transition: width .3s, height .3s;
    
     }
 
+    .dot-title{
 
+      font-family: var(--primary-font);
+      font-size: var(--fs14);
+      font-weight: var(--fw600);
+      line-height: 34px;
+   }
+   
+   .dot-title a{
+   
+      transition: var(--transition-color);
+   }
+   
+   .dot-title a:hover,
+   .dotgrid .product-price .before{
+   
+      color: var(--light-color);
+   }
 
   /*-------------------------*
 
@@ -321,14 +338,16 @@ gap: var(--gutter, 30px);
 .dotgrid .dot-image{
    position: relative;
    margin-bottom: 15px;
-   /*overflow: hidden;*/
+   overflow: hidden;
 
 
 
 }
 
 .dotgrid .dot-image> a,
- .dotgrid .thumbnail.hover{
+ .dotgrid .thumbnail.hover,
+ .dotgrid .actions,
+ .dotgrid .dot-image .label{
    position: absolute;
    top: 0;
    left: 0;
@@ -359,14 +378,30 @@ gap: var(--gutter, 30px);
    transform: scale3d(1.1,1.1,1.1) translateZ(0);
 }
 
-.dotgrid .actions ul{
+.dotgrid .actions{
+
+   z-index: 2;
+   top: auto;
+   bottom: 20px;
+   transform: translate3d(0,100%,0);
+   opacity: 0;
+   transition: all .3s cubic-bezier(0,0,.2,1);
+}
+
+.dot-image:hover .actions{
+   opacity: 1;
+   transform: translateZ(0);
+}
+.dotgrid .actions ul,
+.dotgrid .dot-image .label{
 
    display:flex;
    justify-content: center;
    gap: 10px;
 }
 
-.dotgrid .actions ul li a {
+.dotgrid .actions ul li a,
+.dotgrid .dot-image .label span {
 font-size: 20px;
 display: flex;
 align-items: center;
@@ -379,11 +414,97 @@ transition: var(--transition-background), var(--transition-color);
 
 }
 
+.dotgrid .actions ul li a:hover {
+background-color: var(--dark-color);
+color: var(--white-color);
+
+}
+
+.dotgrid .dot-image .label{
+
+top: auto;
+bottom: 20px;
+
+}
+
+.dotgrid .dot-image .label span{
+
+   font-size: 12px;
+   font-weight: var(--fw600);
+   background-color: var(--primary-color);
+   color: var(--white-color);
+
+
+}
+
+.dotgrid .dot-info{
+
+   text-align: center;
+}
 
 
 
 
+.dotgrid .product-price .before{
 
+   text-decoration: line-through;
+}
+ /*  __#Header: search__  */
+
+.inner-header .search-float{
+
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: auto;
+   height: 80px;
+   background-color: var(--white-color);
+   z-index: 1000;
+   display: none;
+}
+form.search{
+   position: relative;
+}
+
+form.search :where(i){
+
+   position: absolute;
+   left: 0;
+   top: 0;
+}
+
+form.search .input{
+
+   outline: 0;
+   padding: 15px 50px;
+}
+
+form.search i{
+   font-size: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 50px;
+   height: 100%;
+   cursor:pointer;
+
+
+
+}
+
+form.search :where(i:last-child){
+left: auto;
+right: 0;
+
+}
+
+.inner-header .search .input{
+display: flex;
+border: 0;
+height: 80px;
+font-size: 18px;
+}
 
 
  @media (min-width: 992px){
@@ -406,15 +527,30 @@ display: grid;
     
 
  }
-
  /*  __#Sub menu & mega__  */
+
+.mega-content{
+
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   gap: 60px;
+
+}
+
+.mega-content .links{
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+gap: 15px;
+
+}
+
 
  nav.menu .sub-mega{
    left: 0;
    right: 0;
    padding: 50px 0;
 
-   display: block;
+  
  }
 
  nav.menu :where(.sub-menu, .sub-mega) {
@@ -446,4 +582,19 @@ padding: 10px 0;
  }
 
 
+}
+
+@media (min-width:1200px){
+
+   .container.wide{
+
+      --mx-width:1720px;
+      --gutter:40px;
+   }
+}
+
+@media (min-width: 1400px) {
+   .mega-content{
+      grid-template-columns: 1fr 1fr;
+   }
 }
