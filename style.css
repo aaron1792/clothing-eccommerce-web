@@ -1053,6 +1053,15 @@ padding: 10px 0;
    color: var(--white-color);
  }
 
+ .sort-data{
+
+   display: none;
+   animation: var(--fade);
+ }
+ .sort-data.active{
+   display: block;
+ }
+
 
 
 
