@@ -141,7 +141,7 @@ margin: 0 auto;
 
    font-size: var(--fs14);
    font-weight: var(--fw600);
-   text-decoration: uppercase;
+   text-transform: uppercase;
    padding: 0 30px;
    display: inline-block;
    line-height: 42px;
@@ -151,7 +151,7 @@ margin: 0 auto;
    var(--transition-color),
    var(--transition-border)
 
-   ;
+   
  }
 
  .primary-btn, .secondary-btn{
@@ -174,6 +174,19 @@ margin: 0 auto;
    border-color: var(--dark-color);
    color: var(--dark-color);
  }
+
+ .title {
+
+   font-size: clamp(30px, -0.875em + 8.333vw, var(--fs-max, 40px));
+ }
+
+.grey-color{
+   color: var(--grey-color);
+}
+
+
+
+
   /*-------------------------*
 
  #Group Selector
@@ -288,6 +301,37 @@ transition: width .3s, height .3s;
    visibility: visible;
    pointer-events: all;
 }
+
+.scrollto > .wrapper{
+--display:flex;
+padding-bottom: 20px;
+
+   overflow-x: auto;
+   overscroll-behavior-inline:contain ;
+   scroll-snap-type: inline mandatory;
+}
+.scrollto .wrapper::-webkit-scrollbar{
+   width: 12px;
+   height: 12px;
+
+
+}
+.scrollto .wrapper::-webkit-scrollbar-thumb{
+  --border-color:var(var(var(--white-color)));
+  background-color: var(--light-color);
+  border: 3px solid var(--border-color);
+  border-radius: 20px;
+
+
+}
+.scrollto .wrapper:hover::-webkit-scrollbar-thumb{
+
+   background-color: var(--grey-color);
+}
+
+.scrollto .wrapper::-webkit-scrollbar-thumb:hover{
+   background-color: var(--grey-color);
+}
   /*-------------------------*
 
  #Header
@@ -366,7 +410,8 @@ pointer-events: auto;
 
  }
 
- .list-inline a:hover {
+ .list-inline a:hover,
+ .menu-trigger:hover {
 
 color: var(--light-color);
 
@@ -593,6 +638,8 @@ font-size: 18px;
 
 }
 
+
+
 .mobile-menu .wrap{
    position: relative;
    max-width: calc(100% - 40px);
@@ -600,6 +647,13 @@ font-size: 18px;
    height: 100%;
    background-color: var(--white-color);
    pointer-events: auto;
+   transform: translateX(var(--transX, -100%));
+   transition: var(--transition-transform);
+
+}
+
+.mobile-menu.active .wrap{
+transform: translateX(0);
 
 }
 
@@ -610,7 +664,7 @@ top: 0;
 right: -40px;
 width: 40px;
 height: 40px;
-color: var(--primary-color);
+color: var(--white-color);
 display: flex;
 align-items: center;
 justify-content: center;
@@ -698,7 +752,319 @@ visibility: visible;
 
 
 
+ /*  
+ __#SLIDER
+ 
+ */
+.slider :where(.image, .ob-cover){
+position: relative;
+
+}
+.slider .ob-cover{
+height: 430px;
+}
+
+.ob-cover img{
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
+
+.slider .title-info .wrap {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 30px;
+padding-bottom: 5vw;
+max-width: 600px;
+margin: 0 auto;
+text-align: center;
+
+}
+.slider .title-info {
+   background-color: var(--white-color);
+}
+.slider .title-info .price{
+position: relative;
+font-size: 30px;
+width: 80px;
+height: 80px;
+margin-top: -40px;
+background-color: var(--dark-color);
+color: var(--white-color);
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+
+}
+
+.slider .custom-pagination{
+position: absolute;
+right: 30px;
+top: 50%;
+bottom: 50%;
+
+}
+
+
+.slider .custom-pagination .swiper-pagination{
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.custom-pagination .swiper-pagination-bullet{
+position: relative;
+width: 24px;
+height: 24px;
+opacity: 1;
+background-color: transparent;
+
+
+}
+
+.custom-pagination .swiper-pagination-bullet::before{
+content: '';
+position: absolute;
+width: 8px;
+height: 8px;
+top: 50%;
+left: 50%;
+background-color: var(--dark-color);
+border: 1px solid var(--dark-color);
+border-radius: 50%;
+transform: translate(-50%, -50%);
+transition: width .2s, height .2s, transform .2s;
+
+}
+.custom-pagination .swiper-pagination-bullet-active::before{
+background-color: transparent;
+width: 15px;
+height: 15px;
+
+}
+.slider .title-info :where(span, h3, .button){
+transform: translateY(30px);
+opacity: 0;
+visibility: hidden;
+transition: transform .75s, opacity .75s, visibility .75s;
+
+}
+
+.slider .swiper-slide-active .title-info :where(span, h3, .button){
+   transform: translateY(0);
+   opacity: 1;
+visibility: visible;
+}
+
+.slider .swiper-slide-active .title-info h3{
+transition-delay: .5s;
+
+}
+.slider .swiper-slide-active .title-info .button{
+   transition-delay: .75s;
+   
+   }
+
+   /*  
+ __#GUIDE
+ 
+ */
+
+ .page-home main > div:not(.slider){
+
+   padding: 100px 0;
+ }
+
+ .guide{
+
+   background-color: var(--flashwhite-color);
+ }
+
+ main > div .heading{
+text-align: center;
+margin-bottom: 60px;
+
+ }
+
+ .guide .dotgrid .wrapper {
+
+   --grid-col:260px
+ }
+
+ :is(.guide) .dot-image .thumbnail{
+position: relative;
+opacity: unset;
+
+ }
+
+ .guide .dot-image .thumbnail img{
+
+   width:100% ;
+ }
+
+ .guide .dot-title{
+--fs14: 18px;
+--fw600:400;
+padding: 10px 0;
+
+
+ }
+
+ .guide .dot-info p{
+
+   line-height: 1.4;
+ }
+
+ .guide .wrapper .item {
+
+   width: 290px;
+   scroll-snap-align:start ;
+   flex-shrink: 0;
+ }
+
+ .guide .scrollto .wrapper::-webkit-scrollbar-thumb{
+
+   --border-color: #f0f9f8;
+ }
+
+   /*  
+ __#CARRUESEL
+ 
+ */
+
+
+
+ .carousel .inner-wrapper{
+   position: relative;
+ }
+
+ 
+
+ .carousel .dotgrid .wrapper{
+
+   display: flex;
+   grid-template-columns:unset ;
+   gap: unset;
+   height: 450px;
+   
+ }
+
+
+
+ .carousel .nav > div::after{
+   content:none;
+ }
+ .carousel .nav > div{
+  
+   width: 40px;
+   height: 40px;
+   border: 1px solid var(--grey-color);
+   border-radius: 50%;
+   color: var(--dark-color);
+   font-size: 20px;
+   -webkit-tap-highlight-color: transparent;
+   transition: var(--transition-background),
+               var(--transition-color),
+               var(--transition-border);
+
+ }
+
+ .carousel .nav > div:hover{
+
+   color: var(--white-color);
+   background-color: var(--dark-color);
+   border-color: var(--dark-color);
+ }
+
+ .carousel .nav .swiper-button-disabled{
+   opacity: 0;
+ }
+
+
+  /*  
+ __#BYCATS
+ 
+ */
+
+ .bycats .heading {
+
+   display: flex;
+   justify-content: center;
+ }
+
+ .bycats .heading > span {
+
+   font-family: var(--second-font);
+   font-size: 32px;
+   margin-right: 20px;
+ }
+
+ .bycats .heading > span,
+ .opt-trigger{
+
+   height: 44px;
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   -webkit-tap-highlight-color: transparent;
+   cursor: pointer;
+ }
+
+ .sort-list .wrap {
+
+   position: relative;
+ }
+
+ .sort-list .wrap ul {
+
+   position: absolute;
+   text-align: left;
+   top: 50px;
+   left: 0;
+   right: 0;
+   background-color: var(--white-color);
+   box-shadow: var(--shadow);
+   z-index: 10;
+   display: none;
+   animation: var(--fade);
+ }
+
+ .sort-list .wrap ul.show{
+
+   display: block;
+ }
+ .sort-list ul li a{
+   display: block;
+   padding: 5px 20px;
+   transition: var(--transition-background), var(--transition-color);
+
+
+ }
+ .sort-list ul li a:hover,
+ .sort-list ul li.active a
+ {
+
+   background-color: var(--dark-color);
+   color: var(--white-color);
+ }
+
+
+
+
+
+
+
+
+
  @media (min-width: 992px){
+
+
+
 .menu-trigger{
 display: none;
 
@@ -772,11 +1138,50 @@ padding: 10px 0;
 
  }
 
+ /* slider  */
+.slider .ob-cover{
+height: calc(100vh - 80px);
+
+}
+ .slider .title-info{
+
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: transparent;
+
+ }
+ .slider h3 {
+   --fs-max: 80px;
+   color: var(--white-color);
+ }
+ .slider .button a{
+border-color: var(--white-color);
+color: var(--white-color);
+
+ }
+ .slider .button a:hover{
+   border-color: var(--dark-color);
+   
+   
+    }
+
 
 }
 
-@media (min-width:1200px){
+@media (max-width:480px){
 
+
+
+   .carousel .dotgrid .item {
+      width: 270px;
+   }
+}
+
+@media (min-width:1200px){
+  
+   
    .container.wide{
 
       --mx-width:1720px;
@@ -787,5 +1192,22 @@ padding: 10px 0;
 @media (min-width: 1400px) {
    .mega-content{
       grid-template-columns: 1fr 1fr;
+   }
+
+   
+   .carousel .inner-wrapper{
+
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 0 40px;
+   }
+   .carousel .nav > .swiper-button-next{
+      right: -40px;
+      
+
+   }
+   .carousel .nav > .swiper-button-prev{
+      left: -40px;
+      
    }
 }
