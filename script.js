@@ -61,12 +61,16 @@ const trigger = document.querySelectorAll('.tabbed-trigger'),
 content =document.querySelectorAll('.tabbed > div');
 trigger.forEach((btn) => {
 
-    btn.addEventListener('click', function(){
-        let dataTarget = this.dataset.id,
+    btn.addEventListener('click', function(e){
+        e.preventDefault();
+        
+        const dataTarget = this.dataset.id,
         body = document.querySelector(`#${dataTarget}`);
-        trigger.forEach((b) => b.parentNode.classList.remove('active'));
-        trigger.forEach((s) => s.classList.remove('active'));
-        this.parentNode.classList.add('active');
+        trigger.forEach((b) => {b.classList.remove('active');
+        b.closest('li').classList.remove('active')});
+        content.forEach((s) => s.classList.remove('active'));
+        this.classList.add('active');
+        this.closest('li').classList.add('active');
         body.classList.add('active');
 
 
