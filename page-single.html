@@ -372,8 +372,8 @@
                                 <ul>
                                     <li><a href=""><i class="ri-heart-line"></i><span>Add to wishlist</span></a></li>
                                     <li><a href=""><i class="ri-arrow-left-right-line"></i><span>Compare</span></a></li>
-                                    <li><a href=""><i class="ri-share-forward-line"></i><span>Share</span></a></li>
-                                    <li><a href=""><i class="ri-question-line"></i><span>Ask Question</span></a></li>
+                                    <li><a href="#0" trigger-button data-target="data-share"><i class="ri-share-forward-line"></i><span>Share</span></a></li>
+                                    <li><a href="#0" trigger-button data-target="data-question"><i class="ri-question-line"></i><span>Ask Question</span></a></li>
                                 </ul>
                             </div>
                             <div class="shipping">
@@ -456,7 +456,7 @@
                                     <span>3 reviews</span>
                                 </div>
                                 <div class="button">
-                                    <a href="" class="primary-btn">Write a review</a>
+                                    <a href="#0" class="primary-btn" trigger-button data-target="data-review">Write a review</a>
                                 </div>
                             </div>
                             <div class="body-review">
@@ -884,11 +884,11 @@
         </div>
     </div>
 </div>
-<!-- 
+
 <div id="data-share" class="data-popup d-share">
     <div class="wrap">
         <div class="data-content">
-        <a href="" class="close-trigger"><i class="ri-close-line"></i></a>
+        <a href="#0" class="close-trigger" close-button><i class="ri-close-line"></i></a>
     <div class="form">
         <label >Copy link</label>
         <input type="text" disabled value="https:www.rams.com">
@@ -907,11 +907,11 @@
     </div>
 </div>
     </div>
-</div> -->
-<!-- -<div id="data-question" class="data-popup d-question">
+</div> 
+<div id="data-question" class="data-popup d-question">
     <div class="wrap">
         <div class="data-content">
-        <a href="" class="close-trigger"><i class="ri-close-line"></i></a>
+        <a href="#0" class="close-trigger" close-button><i class="ri-close-line"></i></a>
     <h3>The question</h3>
     <form action="">
         <div><input type="text" placeholder="Name"></div>
@@ -924,11 +924,11 @@
     
     </div>
 </div>
-</div> -->
+</div>
 -<div id="data-review" class="data-popup d-review">
     <div class="wrap">
         <div class="data-content">
-        <a href="" class="close-trigger"><i class="ri-close-line"></i></a>
+        <a href="#0" class="close-trigger" close-button><i class="ri-close-line"></i></a>
    <h3>Write a Review</h3>
    <form action="">
     <div class="dotgrid">
@@ -961,6 +961,66 @@
     </div>
 </div>
 </div>
+
+<div id="data-cart" class="cart-menu active">
+    <div class="wrap">
+        <a href="#0" class="close-trigger"><i class="ri-close-line"></i></a>
+   <div class="scrollto cart-outer">
+    <div class="wrapper">
+        <div class="cart-list">
+            <div class="wrapper">
+                <div class="cart-header">
+                    Shopping cart
+                </div>
+                <div class="cart-body scrollto">
+                    <div class="product-list">
+                        <div class="wrapper">
+                            <ul>
+                                <li>
+                                    <div class="grouping"><div class="quantiy">
+                                        <div class="control">
+                                            <button>-</button>
+                                            <input type="text" value="1">
+                                            <button>+</button>
+                                        
+                                        </div>
+                                    </div>
+
+                                    <div class="thumbnail">
+                                        <a href="">
+                                            <img src="assets/assets/product_01.jpg" alt="">
+                                        </a>
+                                    </div>
+                                
+                                </div>
+                                    <div class="variats">
+                                        <h4 class="dot-title"><a href="">The Sweather in Tosca</a></h4>
+                                        <div class="color grey-color">
+                                            <span>Color:</span>
+                                            <span>Tosca</span>
+                                        </div>
+                                        <div class="size grey-color">
+                                            <span>Size:</span>
+                                            <span>L</span>
+                                        </div>
+                                        <div class="price">$45.00</div>
+                                        <a href="" class="item-remove">
+                                            <i class="ri-close-line"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-footer"></div>
+            </div>
+        </div>
+    </div>
+   </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
