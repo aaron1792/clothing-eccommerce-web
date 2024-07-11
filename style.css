@@ -690,7 +690,7 @@ font-size: 18px;
 
 .mobile-menu .wrap,
 .cart-menu .wrap,
-.sidebar > .wrap{
+.sidebar .wrap{
    position: relative;
    max-width: calc(100% - 40px);
    width: 360px;
@@ -704,7 +704,7 @@ font-size: 18px;
 
 .mobile-menu.active .wrap,
 .cart-menu.active .wrap,
-.sidebar.active > .wrap{
+.sidebar.active  .wrap{
 transform: translateX(0);
 
 }
@@ -1987,13 +1987,18 @@ form .button button{
  __#Floating Cart
  
  */
+ .cart-menu{
 
+   overflow-y: auto;
+
+ }
 
 
  .cart-menu .wrap {
-
+   
    float: right;
    --transX: 100%;
+ 
  }
 
  .cart-menu .close-trigger{
@@ -2009,6 +2014,7 @@ form .button button{
  }
 
  .cart-menu .cart-outer > .wrapper{
+  
    height: 100vh;
    padding: 0;
    overflow-y: auto;
@@ -2251,6 +2257,11 @@ input.checker:checked::after{transform: translate(-50%, -50%) scale(1);
  /* --------------------
         #Sidebar
   ---------------------- */
+
+  .sidebar-content {
+   
+   overflow-y: auto;
+  }
  .sidebar-title{
    font-size: 26px;
    padding-top: 100px;
@@ -2640,7 +2651,7 @@ color: var(--white-color);
     }
 
     .sidebar,
-    .sidebar > .wrap{
+    .sidebar .wrap{
       all: unset;
     }
 
