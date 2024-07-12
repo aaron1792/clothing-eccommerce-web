@@ -2249,7 +2249,7 @@ input.checker:checked::after{transform: translate(-50%, -50%) scale(1);
 
 }
 
-.cart-menu .product-list > ,.wrapper{
+.cart-menu .product-list > .wrapper{
    max-height: 400px;
 }
 
@@ -2531,7 +2531,7 @@ align-items: center;}
 }
 
 .cart-total .has-bg::before, 
-.has-bg::after{
+.cart-total .has-bg::after{
    content: '';
    background-color: var(--dark-color);
    width: 100%;
@@ -2603,7 +2603,20 @@ align-items: center;}
 .cart-total .sub-terms{
    font-weight: initial;
    text-transform: capitalize;
+ 
 }
+
+.sub-terms input[type="checkbox"] {
+ 
+   width: 5%;
+}
+
+
+
+
+
+
+
 
 
  @media(min-width:481px){
