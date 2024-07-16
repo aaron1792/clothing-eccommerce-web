@@ -2782,7 +2782,7 @@ z-index: 0;
    height: 54px;
 }
 
-.mobile-nav a{
+.mobile-nav a {
 
    position: relative;
    font-size: 20px;
@@ -2794,7 +2794,7 @@ z-index: 0;
    border-radius: 3px;
    transition: var(--transition-background), var(--transition-color);
 
-   color: var(--white-color);
+   
 }
 
 .mobile-nav a:hover{
